@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Image to Text Recognizer v 1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+	<link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+	<link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+</head>
+
+<body>
+<div class="signupform">
+	<h1>Image to Text Recognizer v1.0</h1>
+		<div class="container">
+			<div class="agile_info">
+				<div class="w3l_form">
+					<div class="left_grid_info">
+                        <center><strong><h2><font color="navy"> EXTRACTED TEXTS OF YOUR IMAGE</font></h2></strong></center>
+						<br><br><br>
+						<h3 style="color:black;" align="justify"> {{ result }} </h3>
+						
+						<h3 style="color:black;" align="justify"> {{ result }}</h3>
+					</div>
+				</div>
+
+				<div class="w3_info">
+					<h2>Extract Image</h2>
+					<p>Just upload the image and extract texts. </p>
+						 <form action="/" method="post" enctype="multipart/form-data" >
+							<div class="input-group">
+								<input id="file-picker" type="file" placeholder="file" name="image" required="">
+							</div>        
+							<div id="msg"></div>
+                            <input type="submit" class="btn btn-danger btn-block" value="Upload" id="upload-button">
+                               <br>
+                 <center>  <strong>  <h3>Image Upload Successful!</h3></strong> </center>
+						</form>
+<br><br><br><br><br><br><br><br><br>
+				</div>
+			</div>
+			
+	<script>
+    $("#file-picker").change(function(){
+        var input = document.getElementById('file-picker');
+        for (var i=0; i<input.files.length; i++)
+        {
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+            if ((ext == 'jpg') || (ext == 'png'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+        }
+    } );
+</script>
+
+		</div>
+		<div class="footer">
+			<p>&copy; 2019. All Rights Reserved | Developed by ManoRanjana.</p>
+		</div>
+</div>
+	
+</body>
+</html>
